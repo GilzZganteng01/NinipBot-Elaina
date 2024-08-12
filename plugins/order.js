@@ -1,5 +1,5 @@
 let handler = async(m, { conn, text, usedPrefix, command}) => {
-  if (!text) return conn.reply(m.chat, `*— PRICELIST*\n\n*7 Day join the group*\n- OrderID: G7\n- Price: Rp. 7.000 IDR\n\n*30 Day join the group*\n- OrderID: G30\n- Price: Rp. 15.000 IDR\n\n*365 Day join the group*\n- OrderID: G365\n- Price: Rp. 110.000 IDR\n\n*— LIMIT*\n\n*1000 Limit*\n- OrderID: L1\n- Price: Rp. 1.000 IDR\n\n*2000 Limit*\n- OrderID: L2\n- Price: Rp. 2.000 IDR\n\n*5000 Limit*\n- OrderID: L5\n- Price: Rp. 15.000 IDR\n\n*— PREMIUM USER*\n\n*3 Day premium*\n- OrderID: 3\n- Price: Rp. 5.000 IDR\n\n*7 Day premium*\n- OrderID: 7\n- Price: Rp. 10.000 IDR\n\n*30 Day premium*\n- OrderID: 30\n- Price: Rp. 15.000 IDR\n\n*60 Day premium*\n- OrderID: 60\n- Price: Rp. 30.000 IDR\n\n*90 Day premium*\n- OrderID: 90\n- Price: Rp. 40.000 IDR\n\n*365 Day premium*\n- OrderID: 365\n- Price: Rp. 115.000 IDR\n\n${usedPrefix + command} <OrderID>\nexample: ${usedPrefix + command} 30`, m)
+  if (!text) return conn.reply(m.chat, `*— PRICELIST*\n\n*7 Day join the group*\n- OrderID: G7\n- Price: Rp. 7.000 IDR\n\n*30 Day join the group*\n- OrderID: G30\n- Price: Rp. 15.000 IDR\n\n*365 Day join the group*\n- OrderID: G365\n- Price: Rp. 110.000 IDR\n\n*— LIMIT*\n\n*1000 Limit*\n- OrderID: L1\n- Price: Rp. 1.000 IDR\n\n*2000 Limit*\n- OrderID: L2\n- Price: Rp. 2.000 IDR\n\n*5000 Limit*\n- OrderID: L5\n- Price: Rp. 5.000 IDR\n\n*— PREMIUM USER*\n\n*3 Day premium*\n- OrderID: 3\n- Price: Rp. 5.000 IDR\n\n*7 Day premium*\n- OrderID: 7\n- Price: Rp. 10.000 IDR\n\n*30 Day premium*\n- OrderID: 30\n- Price: Rp. 15.000 IDR\n\n*60 Day premium*\n- OrderID: 60\n- Price: Rp. 30.000 IDR\n\n*90 Day premium*\n- OrderID: 90\n- Price: Rp. 40.000 IDR\n\n*365 Day premium*\n- OrderID: 365\n- Price: Rp. 115.000 IDR\n\n${usedPrefix + command} <OrderID>\nexample: ${usedPrefix + command} 30`, m)
   let orderID;
 
 switch(text) {
@@ -30,11 +30,13 @@ switch(text) {
     case 'G365':
     orderID = 'G365';
     break;
-    case 'L100':
-    orderID = 'L100';
+    case 'L1':
+    orderID = 'L1';
     break;
-    case 'L200':
-    orderID = 'L500';
+    case 'L2':
+    orderID = 'L2';
+    case 'L5':
+    orderID = 'L5';
     break;
     default:
     throw `*OrderID* yang dipilih tidak tersedia, Silahkan pilih *OrderID* di bawah.
