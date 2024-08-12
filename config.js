@@ -66,7 +66,7 @@ global.apikey = 'plta_xxxxx' //plta
 global.lolkey = '7a731add2f9e3a6fee04f766'
 global.xkey = 'd90a9e986e18778b'
 global.xzn = 'konekocyz'
-global.lann = 'ninipbot.betabotz'
+global.lann = 'isi apikey lann'
 global.xyro = '3WIq7q3CWt'
 
 /*============== API ==============*/
@@ -83,7 +83,7 @@ global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.lolhuman.xyz': 'GataDios', //lolhuman
   'https://skizo.tech': 'konekocyz', //skizo
-  'https://api.betabotz.eu.org': 'ninipbot.betabotz', //betabotz
+  'https://api.betabotz.eu.org': 'isi apikey lann', //betabotz
   'https://api.xyroinee.xyz': '3WIq7q3CWt' //xyroine
 }
 
