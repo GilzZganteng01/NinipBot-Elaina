@@ -1,5 +1,5 @@
-import { sticker } from '../../lib/sticker.js';
-import uploadFile from '../../lib/uploadFile.js';
+import { sticker } from '../lib/sticker.js';
+import uploadFile from '../lib/uploadFile.js';
 
 const handler = async (m, { conn, text, args }) => {
   var pp = 'https://i.ibb.co/2WzLyGk/profile.jpg'
@@ -13,9 +13,9 @@ const handler = async (m, { conn, text, args }) => {
     }
   } else {
     try {
-      userPfp = await conn.profilePictureUrl(m.sender, "image");
+      userpp = await conn.profilePictureUrl(m.sender, "image");
     } catch (e) {
-      userPfp = pp;
+      userp = pp;
     }
   }
   var trimtext = text.length > 50 ? text.substring(0, 50 - 3) + "..." : text,
