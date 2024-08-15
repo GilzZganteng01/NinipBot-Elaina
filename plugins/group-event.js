@@ -1,10 +1,16 @@
-
 import { randomBytes } from 'crypto';
 import { generateWAMessageFromContent } from '@adiwajshing/baileys';
 
 export async function handler(m, { text, args, usedPrefix, command }) {
   if (!args[0]) return m.reply(`Enter a list of events, Example: ${usedPrefix + command} Ada Event Ges`);
   let [evtName, evtDesc, evtLocation, evtLink] = text.split(',');
+  let today = new Date();
+  let tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1); // tambahkan 1 hari
+  tomorrow.setHours(today.getHours()); // atur jam yang sama
+  tomorrow.setMinutes(today.getMinutes()); // atur menit yang sama
+  tomorrow.setSeconds(today.getSeconds()); // atur detik yang sama
+
   let msg = generateWAMessageFromContent(m.chat, {
     messageContextInfo: {
       messageSecret: randomBytes(32)
@@ -19,7 +25,7 @@ export async function handler(m, { text, args, usedPrefix, command }) {
         name: evtLocation || 'Indonesia'
       },
       joinLink: evtLink || 'https://s.id/',
-      startTime: new Date() * 86400000
+      startTime: tomorrow
     }
   }, {});
 
