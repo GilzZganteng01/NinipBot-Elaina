@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     
-    if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command} <${bawah ? bawah : 'teks bawah'}>|<${atas ? atas : 'atas'}>\n${usedPrefix + command} <|${atas ? atas : 'teks atas'}>\n${usedPrefix + command} <${bawah ? bawah : 'teks bawah'}>`
+    if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command} <${atas ? atas : 'teks atas'}>|<${bawah ? bawah : 'teks bawah'}>\n${usedPrefix + command} <|${bawah ? bawah : 'teks bawah'}>\n${usedPrefix + command} <${atas ? atas : 'teks atas'}>`
     
     let img = await q.download()
     let url = await uploadImage(img)
@@ -15,13 +15,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         atas = ' '
     }
     
-    let meme = `https://api.memegen.link/images/custom/${encodeURIComponent(bawah ? bawah : '')}/${encodeURIComponent(atas ? atas : '')}.png?background=${url}`
+    let meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${url}`
     
-    let stiker = await sticker(false, meme, global.author, global.packname)
+    let stiker = await sticker(false, meme, global.packname, global.author)
     if (stiker) await conn.sendFile(m.chat, stiker, '', author, m, '', { asSticker: 1 })
 }
 
-handler.help = ['smeme <teks bawah>|<teks atas>']
+handler.help = ['smeme <teks atas>|<teks bawah>']
 handler.tags = ['tools']
 handler.command = /^(smeme)$/i
 
