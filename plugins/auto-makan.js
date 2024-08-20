@@ -46,18 +46,20 @@ export async function before(m) {
       } else if (makan === 'Malam') {
         caption = `Halo kak @${who.split`@`[0]}, Sudah Makan Malam Belum?\n\nWaktu Makan Malam telah tiba! Isi piringmu dengan makanan yang seimbang dan bergizi, dan jangan lupa minum air untuk menjaga hidrasi tubuhmu. Persiapkan dirimu untuk tidur yang nyenyak! 🙂.\n`
       }
-      this.automakan[id] = {
-        sent: true,
-        timeout: setTimeout(() => {
-          delete this.automakan[id]
-        }, 60000) // 1 minute timeout
+      if (!this.automakan[id] || !this.automakan[id].sent) {
+        this.automakan[id] = {
+          sent: true,
+          timeout: setTimeout(() => {
+            delete this.automakan[id]
+          }, 86400000) // 1 day timeout
+        };
+        this.reply(m.chat, caption, null, {
+          contextInfo: {
+            mentionedJid: [who]
+          }
+        });
       }
-      this.reply(m.chat, caption, null, {
-        contextInfo: {
-          mentionedJid: [who]
-        }
-      })
     }
   }
 }
-export const disabled = false
+export const disabled = false;
