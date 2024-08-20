@@ -3,10 +3,6 @@ export async function before(m) {
   const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender;
   const id = m.chat;
 
-  if (id in this.autosholat && this.autosholat[id].sent) {
-    return false;
-  }
-
   const jadwalSholat = {
     Imsyak: "04:18",
     Subuh: "04:28-05:00",
@@ -55,13 +51,12 @@ export async function before(m) {
           caption = `Hai kak @${who.split`@`[0]}, Sudah Sholat Belum??\n\nWaktu *${sholat}* telah tiba, ambilah air wudhu dan segeralah shalat sebelum waktunya habis 🙂.\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`;
       }
 
-      if (!this.autosholat[id] || !this.autosholat[id].sent) {
-        this.autosholat[id] = {
-          sent: true,
-          timeout: setTimeout(() => {
-            delete this.autosholat[id];
-          }, 86400000) // 1 day timeout
-        };
+      if (!this.autosholat[id] || !this.autosholat[id][who]) {
+        if (!this.autosholat[id]) this.autosholat[id] = {};
+        this.autosholat[id][who] = true;
+        setTimeout(() => {
+          delete this.autosholat[id][who];
+        }, 86400000); // 1 day timeout
 
         this.reply(m.chat, caption, null, {
           contextInfo: {

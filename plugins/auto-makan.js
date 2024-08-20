@@ -2,9 +2,6 @@ export async function before(m) {
   this.automakan = this.automakan || {};
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender;
   let id = m.chat;
-  if (id in this.automakan && this.automakan[id].sent) {
-    return false;
-  }
 
   let jadwalMakan = {
     Sarapan: "06:15-07.00",
@@ -46,13 +43,13 @@ export async function before(m) {
       } else if (makan === 'Malam') {
         caption = `Halo kak @${who.split`@`[0]}, Sudah Makan Malam Belum?\n\nWaktu Makan Malam telah tiba! Isi piringmu dengan makanan yang seimbang dan bergizi, dan jangan lupa minum air untuk menjaga hidrasi tubuhmu. Persiapkan dirimu untuk tidur yang nyenyak! 🙂.\n`
       }
-      if (!this.automakan[id] || !this.automakan[id].sent) {
-        this.automakan[id] = {
-          sent: true,
-          timeout: setTimeout(() => {
-            delete this.automakan[id]
-          }, 86400000) // 1 day timeout
-        };
+      if (!this.automakan[id] || !this.automakan[id][who]) {
+        if (!this.automakan[id]) this.automakan[id] = {};
+        this.automakan[id][who] = true;
+        setTimeout(() => {
+          delete this.automakan[id][who];
+        }, 86400000); // 1 day timeout
+
         this.reply(m.chat, caption, null, {
           contextInfo: {
             mentionedJid: [who]
@@ -62,4 +59,5 @@ export async function before(m) {
     }
   }
 }
+
 export const disabled = false;
