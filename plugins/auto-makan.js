@@ -50,7 +50,7 @@ export async function before(m) {
           sent: true,
           timeout: setTimeout(() => {
             delete this.automakan[id]
-          }, 60000) // 1 minute timeout
+          }, 86400000) // 1 day timeout
         }
         this.reply(m.chat, caption, null, {
           contextInfo: {

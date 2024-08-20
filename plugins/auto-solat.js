@@ -19,7 +19,7 @@ export async function before(m) {
     };
   
     const date = new Date();
-    const timezoneOffset = date.getTimezoneOffset() * 60000; // in milliseconds
+    const timezoneOffset = date.getTimezoneOffset() * 86400000; // in milliseconds
     const indonesiaTime = new Date(date.getTime() + timezoneOffset + 7 * 60 * 60 * 1000); // add 7 hours for Jakarta time
     const hours = indonesiaTime.getHours();
     const minutes = indonesiaTime.getMinutes();
@@ -60,7 +60,7 @@ export async function before(m) {
             sent: true,
             timeout: setTimeout(() => {
               delete this.autosholat[id];
-            }, 60000) // 1 minute timeout
+            }, 86400000) // 1 day timeout
           };
   
           this.reply(m.chat, caption, null, {
