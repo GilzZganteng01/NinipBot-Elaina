@@ -9,13 +9,13 @@ export async function before(m) {
     //let jadwalSholat = data.data.timings;
     let jadwalSholat = {
         Imsyak: "04:18",
-        Subuh: "04:28-05:42",
-        Terbit: "05:43-06:06",
-        Dhuha: "06:07-11:42",
-        Dzuhur: "11:43-15:03",
-        Ashar: "15:04-17:39",
-        Maghrib: "17:40-18:50",
-        Isha: "18:51-19:00",
+        Subuh: "04:28-05:00",
+        Terbit: "05:43",
+        Dhuha: "06:07-7:37",
+        Dzuhur: "11:43-12:41",
+        Ashar: "15:04-16:02",
+        Maghrib: "17:40-18:38",
+        Isha: "18:51-19:59",
     }
     const date = new Date((new Date).toLocaleString("en-US", {
         timeZone: "Asia/Jakarta"
