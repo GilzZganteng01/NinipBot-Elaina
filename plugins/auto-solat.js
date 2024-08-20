@@ -33,7 +33,7 @@ export async function before(m) {
             } else if (sholat === 'Terbit') {
                 caption = `Hai kak @${who.split`@`[0]},\nWaktu *Terbit* telah tiba, mari kita berdoa dan memulai hari dengan penuh semangat! 🌟\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`
             } else {
-                caption = `Hai kak @${who.split`@`[0]}, Sudah Sholat Belum?\nWaktu *${sholat}* telah tiba, ambilah air wudhu dan segeralah shalat 🙂.\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`
+                caption = `Hai kak @${who.split`@`[0]}, Sudah sholat belum?\n\nWaktu *${sholat}* telah tiba, ambilah air wudhu dan segeralah shalat sebelum waktunya habis 🙂.\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`
             }
             this.autosholat[id] = [
                 this.reply(m.chat, caption, null, {
