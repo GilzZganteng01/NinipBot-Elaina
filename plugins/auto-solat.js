@@ -7,17 +7,17 @@ export async function before(m) {
     if (id in this.autosholat) {
         return false
     }
-    //let data = await (await fetch("https://api.aladhan.com/v1/timingsByCity?city=Makassar&country=Indonesia&method=8")).json();
+    //let data = await (await fetch("https://www.jadwalsholat.org/adzan/monthly.php?id=307")).json();
     //let jadwalSholat = data.data.timings;
     let jadwalSholat = {
-        Imsyak: "04:23",
-        Subuh: "04:33",
-        Terbit: "05:51",
-        Dhuha: "06:15",
-        Dzuhur: "11:47",
-        Ashar: "15:08",
-        Maghrib: "17:39",
-        Isha: "18:53",
+        Imsyak: "04:18",
+        Subuh: "04:28",
+        Terbit: "05:43",
+        Dhuha: "06:07",
+        Dzuhur: "11:43",
+        Ashar: "15:04",
+        Maghrib: "17:40",
+        Isha: "18:51",
     }
     const date = new Date((new Date).toLocaleString("en-US", {
         timeZone: "Asia/Jakarta"
