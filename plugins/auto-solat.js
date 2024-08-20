@@ -1,9 +1,8 @@
-//import fetch from "node-fetch"
 export async function before(m) {
     this.autosholat = this.autosholat ? this.autosholat : {}
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
     let id = m.chat
-    if (id in this.autosholat) {
+    if (id in this.autosholat && this.autosholat[id].sent) {
         return false
     }
     //let data = await (await fetch("https://www.jadwalsholat.org/adzan/monthly.php?id=307")).json();
@@ -33,18 +32,19 @@ export async function before(m) {
             } else if (sholat === 'Terbit') {
                 caption = `Hai kak @${who.split`@`[0]},\nWaktu *Terbit* telah tiba, mari kita berdoa dan memulai hari dengan penuh semangat! 🌟\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`
             } else {
-                caption = `Hai kak @${who.split`@`[0]}, Sudah sholat belum?\n\nWaktu *${sholat}* telah tiba, ambilah air wudhu dan segeralah shalat sebelum waktunya habis 🙂.\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`
+                caption = `Hai kak @${who.split`@`[0]}, Sudah Sholat Belum??\n\nWaktu *${sholat}* telah tiba, ambilah air wudhu dan segeralah shalat sebelum waktunya habis 🙂.\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`
             }
-            this.autosholat[id] = [
-                this.reply(m.chat, caption, null, {
-                    contextInfo: {
-                        mentionedJid: [who]
-                    }
-                }),
-                setTimeout(() => {
+            this.autosholat[id] = {
+                sent: true,
+                timeout: setTimeout(() => {
                     delete this.autosholat[id]
                 }, 57000)
-            ]
+            }
+            this.reply(m.chat, caption, null, {
+                contextInfo: {
+                    mentionedJid: [who]
+                }
+            })
         }
     }
 }
