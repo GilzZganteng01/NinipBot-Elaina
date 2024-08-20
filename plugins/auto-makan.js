@@ -23,13 +23,13 @@ export async function before(m) {
         if (timeNow >= start && timeNow <= end) {
             let caption;
             if (makan === 'Sarapan') {
-                caption = `Halo kak @${who.split`@`[0]},\nWaktu Sarapan telah tiba! Isi piringmu dengan karbohidrat dari nasi, protein dari telur atau tempe, serat dari sayuran, dan jangan lupa vitamin dan juga air. Tubuhmu butuh nutrisi lengkap untuk beraktivitas! 🙂.\n`
+                caption = `Halo kak @${who.split`@`[0]}, Sudah Sarapan belum?\n\nWaktu Sarapan telah tiba! Isi piringmu dengan karbohidrat dari nasi, protein dari telur atau tempe, serat dari sayuran, dan jangan lupa vitamin dan juga air. Tubuhmu butuh nutrisi lengkap untuk beraktivitas! 🙂.\n`
             } else if (makan === 'Cemilan') {
-                caption = `Halo kak @${who.split`@`[0]},\nWaktu Cemilan telah tiba! Pilihlah jajanan yang ringan dan seimbang, seperti buah atau kacang-kacangan. Jangan lupa minum air untuk menjaga hidrasi tubuhmu! 🙂.\n`
+                caption = `Halo kak @${who.split`@`[0]}, Sudah Nyemil belum nih?\n\nWaktu Cemilan telah tiba! Pilihlah jajanan yang ringan dan seimbang, seperti buah atau kacang-kacangan. Jangan lupa minum air untuk menjaga hidrasi tubuhmu! 🙂.\n`
             } else if (makan === 'Siang') {
-                caption = `Halo kak @${who.split`@`[0]},\nWaktu Makan Siang telah tiba! Bawa bekal dari rumah atau beli sendiri? Apabila beli sendiri pastikan untuk memilih makanan yang seimbang dan bergizi. Jangan lupa minum air untuk menjaga hidrasi tubuhmu! 🙂.\n`
+                caption = `Halo kak @${who.split`@`[0]}, Sudah Makan Siang Belum?\n\nWaktu Makan Siang telah tiba! Bawa bekal dari rumah atau beli sendiri? Apabila beli sendiri pastikan untuk memilih makanan yang seimbang dan bergizi. Jangan lupa minum air untuk menjaga hidrasi tubuhmu! 🙂.\n`
             } else if (makan === 'Malam') {
-                caption = `Halo kak @${who.split`@`[0]},\nWaktu Makan Malam telah tiba! Isi piringmu dengan makanan yang seimbang dan bergizi, dan jangan lupa minum air untuk menjaga hidrasi tubuhmu. Persiapkan dirimu untuk tidur yang nyenyak! 🙂.\n`
+                caption = `Halo kak @${who.split`@`[0]}, Sudah Makan Malam Belum?\n\nWaktu Makan Malam telah tiba! Isi piringmu dengan makanan yang seimbang dan bergizi, dan jangan lupa minum air untuk menjaga hidrasi tubuhmu. Persiapkan dirimu untuk tidur yang nyenyak! 🙂.\n`
             }
             this.automakan[id] = {
                 sent: true,
