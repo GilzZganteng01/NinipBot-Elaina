@@ -55,12 +55,12 @@ export async function before(m) {
           caption = `Hai kak @${who.split`@`[0]}, Sudah Sholat Belum??\n\nWaktu *${sholat}* telah tiba, ambilah air wudhu dan segeralah shalat sebelum waktunya habis 🙂.\n\n*${waktu}*\n_untuk wilayah Yogyakarta dan sekitarnya._`;
       }
 
-      if (!this.autosholat[id] || !this.autosholat[id].sent || this.autosholat[id].timeout) {
+      if (!this.autosholat[id] || !this.autosholat[id].sent) {
         this.autosholat[id] = {
           sent: true,
           timeout: setTimeout(() => {
             delete this.autosholat[id];
-          }, 60000) // 1 minute timeout
+          }, 86400000) // 1 day timeout
         };
 
         this.reply(m.chat, caption, null, {
