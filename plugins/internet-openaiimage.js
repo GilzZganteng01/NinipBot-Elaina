@@ -8,7 +8,7 @@ const configuration = new Configuration({ organization: mySecret, apiKey: mySecr
 
 const openai = new OpenAIApi(configuration);
 
-const Nomor = 'Nomer Kamu'
+const Nomor = '6282183478561'
 
 let handler = async (m, { conn, text, command }) => {
     try {
