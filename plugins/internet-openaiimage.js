@@ -40,7 +40,7 @@ let handler = async (m, { conn, text, command }) => {
 handler.help = ['ai-image']
 handler.tags = ['internet']
 handler.exp = 0;
-handler.command = /^(dalle|aiimg|aiimage|ai-img|openaiimage|ai-image|img)$/i 
+handler.command = /^(aiimg|ai-img|openaiimage|ai-image|img)$/i 
 
 export default handler;
     
