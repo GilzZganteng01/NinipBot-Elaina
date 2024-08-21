@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from 'openai'
 
-const mySecret = process.env['key-org'] // process.env['key-org'] ubah jadi key-org kamu di openai.com
-const mySecret2 = process.env['key-apikey'] // process.env['key-apikey'] ubah jadi key-APIKEY kamu di openai.com
+const mySecret = process.env['org-9WFQ3WWtgctsAxque0v98usU'] // process.env['key-org'] ubah jadi key-org kamu di openai.com
+const mySecret2 = process.env['sk-EXPZComgaQOaQJrLNMlvN0jEk_oCUlOrBCU7QQMPsyT3BlbkFJLnKw3zuPoWf1gRJ2KXN4Bwh5mi2UmsXDHNl1mh2kQA'] // process.env['key-apikey'] ubah jadi key-APIKEY kamu di openai.com
 
 const configuration = new Configuration({ organization: mySecret, apiKey: mySecret2 });
 // const configuration = new Configuration({ apiKey: mySecret2 });
