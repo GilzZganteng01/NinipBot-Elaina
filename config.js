@@ -63,7 +63,7 @@ global.capikey = 'pltc_xxxxx' //pltc
 global.apikey = 'plta_xxxxx' //plta
 
 /*============== APIKEY ==============*/
-global.lolkey = '7a731add2f9e3a6fee04f766'
+global.lolkey = 'GataDios'
 global.xkey = 'd90a9e986e18778b'
 global.xzn = 'konekocyz'
 global.lann = 'isi apikey lann'
