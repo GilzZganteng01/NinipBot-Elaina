@@ -56,7 +56,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break;
     case 'antibot':
       if (m.isGroup) {
-        if (!isAdmin && !isBotAdmin) {
+        if (!(isAdmin || isOwner)) {
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
@@ -64,7 +64,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break;
     case 'antiaudio':
       if (m.isGroup) {
-        if (isAdmin || !isBotAdmin) {
+        if (!(isAdmin || isOwner)) {
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
@@ -88,7 +88,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break;
     case 'antifoto':
       if (m.isGroup) {
-        if (isAdmin || !isBotAdmin) {
+        if (!(isAdmin || isOwner)) {
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
@@ -104,7 +104,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break;
     case 'antisticker':
       if (m.isGroup) {
-        if (isAdmin || !isBotAdmin) {
+        if (!(isAdmin || isOwner)) {
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
@@ -120,7 +120,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break;
     case 'antivideo':
       if (m.isGroup) {
-        if (isAdmin || !isBotAdmin) {
+        if (!(isAdmin || isOwner)) {
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
