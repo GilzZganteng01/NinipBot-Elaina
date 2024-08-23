@@ -54,6 +54,86 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.delete = !isEnable;
       break;
+    case 'antibot':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiBot = !isEnable;
+      break;
+    case 'antiaudio':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiAudio = !isEnable;
+      break;
+    case 'antibadword':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiBadword = !isEnable;
+      break;
+    case 'anticall':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiCall = !isEnable;
+      break;
+    case 'antifoto':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiFoto = !isEnable;
+      break;
+    case 'antinsfw':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiNsfw = !isEnable;
+      break;
+    case 'antisticker':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiSticker = !isEnable;
+      break;
+    case 'antitoxic':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiToxic = !isEnable;
+      break;
+    case 'antivideo':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiVideo = !isEnable;
+      break;
+    case 'antivirus':
+      if (m.isGroup) {
+        if (!(isAdmin || isOwner)) {
+          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
+        }
+      }
+      chat.antiVirus = !isEnable;
+      break;
     case 'document':
       chat.useDocument = isEnable;
       break;
