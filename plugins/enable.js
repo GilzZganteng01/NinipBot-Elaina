@@ -84,7 +84,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiCall = !isEnable;
+      chat.antiCall = isEnable;
       break;
     case 'antifoto':
       if (m.isGroup) {
@@ -92,7 +92,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiFoto = !isEnable;
+      chat.antiFoto = isEnable;
       break;
     case 'antinsfw':
       if (m.isGroup) {
@@ -100,7 +100,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiNsfw = !isEnable;
+      chat.antiNsfw = isEnable;
       break;
     case 'antisticker':
       if (m.isGroup) {
@@ -108,7 +108,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiSticker = !isEnable;
+      chat.antiSticker = isEnable;
       break;
     case 'antitoxic':
       if (m.isGroup) {
@@ -116,7 +116,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiToxic = !isEnable;
+      chat.antiToxic = isEnable;
       break;
     case 'antivideo':
       if (m.isGroup) {
@@ -124,7 +124,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiVideo = !isEnable;
+      chat.antiVideo = isEnable;
       break;
     case 'antivirus':
       if (m.isGroup) {
@@ -132,7 +132,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiVirus = !isEnable;
+      chat.antiVirus = isEnable;
       break;
     case 'document':
       chat.useDocument = isEnable;
