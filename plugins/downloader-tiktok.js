@@ -33,7 +33,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     }
 };
 
-handler.command = [tt|tiktok]
+handler.command = ['tt','tiktok']
 handler.help = ['tiktok <url>'];
 handler.tags = ['downloader'];
 handler.limit = true;
