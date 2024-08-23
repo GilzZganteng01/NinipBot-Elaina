@@ -1,27 +1,27 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 
-let handler = async (m, {conn, text, usedPrefix, command }) => {
-     if (!text) throw `Masukan nama nabi\nExample: ${usedPrefix + command} adam`
-     let url = await fetch(`https://raw.githubusercontent.com/ZeroChanBot/Api-Freee/a9da6483809a1fbf164cdf1dfbfc6a17f2814577/data/kisahNabi/${text}.json`)
-     let kisah = await url.json().catch(_ => "Error")
-     if (kisah == "Error") throw "*Not Found*\n*📮 ᴛɪᴘs :* coba jangan gunakan huruf capital"
-     
-     let hasil = `_*👳 Nabi :*_ ${kisah.name}
-_*📅 Tanggal Lahir :*_ ${kisah.thn_kelahiran}
-_*📍 Tempat Lahir :*_ ${kisah.tmp}
-_*📊 Usia :*_ ${kisah.usia}
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `Masukkan kisah nabi yang ingin kamu cari!\n\ncontoh: ${usedPrefix + command} ISA`;
+  try {
+    await m.reply(wait)
+    let res = await fetch(`https://api.betabotz.eu.org/api/muslim/kisahnabi?nabi=${text}&apikey=${lann}`);
+    let json = await res.json()
+    global.anu = [
+      `―-KISAH NABI-―\n\nNama: ${json.result.name}\n\nKelaharian: ${json.result.kelahiran}\n\nWafat usia: ${json.result.wafat_usia}\n\nSinggah: ${json.result.singgah}\n\nkisah: ${json.result.kisah}`, 
+    ]
+    conn.reply(m.chat, `${(global.anu)}`);;
+  } catch (e) {
+    throw `Internal server eror!\n\nulangi lagi perintah dengan kisah lain!`
+  }
+}
 
-*— — — — — — — — [ K I S A H ] — — — — — — — —*
-
-${kisah.description}`
-
-     conn.reply(m.chat, hasil, m)
-
-     }
-handler.help = ['kisahnabi <name>']
+handler.help = ['kisahnabi']
 handler.tags = ['quran']
-handler.command = /^kisahnabi$/i
-handler.register = false
-handler.limit = true
+handler.command = /^(kisahnabi)$/i
+handler.group = true
 
-export default handler
+async function pickRandom(list) {
+  return list[Math.floor(list.length * Math.random())]
+}
+
+export default handler;

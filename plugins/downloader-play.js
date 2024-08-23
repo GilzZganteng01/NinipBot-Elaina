@@ -1,9 +1,3 @@
-/* 
-ini play beton
-
-* nanas
-*/
-
 const {
   proto,
   generateWAMessageFromContent,

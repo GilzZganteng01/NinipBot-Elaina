@@ -4,11 +4,10 @@ let handler = async (m, { conn }) => {
     if (!(id in conn.siapakahaku)) throw false
     let json = conn.siapakahaku[id][1]
     let ans = json.jawaban
-    let clue = ans.replace(/[bcdfghjklmpqrstvwxyz]/ig, '_')
+    // kalau ini error clue nya ak mau ada tanda (_) nya ganti string dalam function di bawah ini jadi huruf kecil
+    let clue = ans.replace(/[bcdfghjklmnpqrstvwxyz]/g, '_')
     m.reply('```' + clue + '```')
 }
-handler.command = /^who$/i
-
+handler.command = /^maka/i
 handler.limit = true
-
-export default handler
+module.exports = handler
