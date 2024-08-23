@@ -1,4 +1,4 @@
-const isToxic = /(anjing|kontol|memek|bangsat|babi|goblok|goblog|kntl|pepek|ppk|ngentod|ngentd|ngntd|kentod|kntd||njir|jir|cuk|coeg|cok|bgst|anjg|anj|fuck|hitam|ireng|jawir|gay|asw|asu|ktl)/i;
+const isToxic = /(anjing|njir|kontol|memek|bangsat|babi|goblok|goblog|kntl|pepek|ppk|ngentod|ngentd|ngntd|kentod|kntd||njir|jir|cuk|coeg|cok|bgst|anjg|anj|fuck|hitam|ireng|jawir|gay|asw|asu|ktl)/i;
 
 export async function before(m, { isAdmin, isBotAdmin }) {
     if (m.isBaileys && m.fromMe)

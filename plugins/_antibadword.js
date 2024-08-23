@@ -7,6 +7,7 @@ export async function before(m, { isBotAdmin }) {
     let isBadword = badwordRegex.exec(m.text)
     if (chat.antiBadword && isBadword) {
         user.warn += 1
+        await conn.sendMessage(m.chat, { delete: m.key })
         await m.reply(`${user.warn >= 5 ? '*📮 Jika total warning kamu mencapai 5 Bot terpaksa kick kamu dari grup!*' : '*📮 Kata Kata Toxic/Jorok Terdeteksi*'}
 
 𖠙 Warning: ${user.warn} / 5
