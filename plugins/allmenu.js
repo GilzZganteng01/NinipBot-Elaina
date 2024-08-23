@@ -187,7 +187,7 @@ const defaultMenu = {
     throw e
   }
 }
-handler.command = /^(allmenu|menuall|menunya|reyz)$/i
+handler.command = /^(allmenu|menuall|menunya)$/i
 handler.daftar = false
 
 export default handler
