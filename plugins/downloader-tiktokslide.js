@@ -24,7 +24,7 @@ let handler = async (m, {
   }
 };
 
-handler.command = [ttslide|tiktokslide]
+handler.command = ['ttslide','tiktokslide']
 handler.help = ['tiktokslide'];
 handler.tags = ['downloader'];
 handler.limit = true;
