@@ -20,7 +20,7 @@ handler.before = function (m, { match, usedPrefix }) {
        	showAdAttribution: true,
             title: 'D I D Y O U M E A N',
             thumbnailUrl: 'https://telegra.ph/file/3735c8d5b61da875c6ce1.jpg',
-            sourceUrl: 'https://whatsapp.com/channel/0029VaF8RYn9WtC16ecZws0H',
+            sourceUrl: saluran,
             mediaType: 1,
             renderLargerThumbnail: true
                      }

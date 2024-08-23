@@ -180,7 +180,7 @@ const defaultMenu = {
                      }}}, { quoted: memek })
                      await conn.sendFile(m.chat, apalah, 'menu.mp3', null, m, true, {
  type: 'audioMessage',  
- ptt: true, contextInfo: { forwardingScore: 999, isForwarded: false, externalAdReply: {title: 'ᴇʟᴀɪɴᴀ ᴍᴜʟᴛɪᴅᴇᴠɪᴄᴇ', body: wm, sourceUrl: 'https://whatsapp.com/channel/0029VaF8RYn9WtC16ecZws0H', thumbnail: await (await fetch(bjir)).buffer(),}}  
+ ptt: true, contextInfo: { forwardingScore: 999, isForwarded: false, externalAdReply: {title: 'ᴇʟᴀɪɴᴀ ᴍᴜʟᴛɪᴅᴇᴠɪᴄᴇ', body: wm, sourceUrl: saluran, thumbnail: await (await fetch(bjir)).buffer(),}}  
   }) 
     } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
