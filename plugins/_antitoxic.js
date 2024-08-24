@@ -13,7 +13,7 @@ export async function before(m, { isAdmin, isBotAdmin }) {
      m.reply(`*Terdeteksi kata Toxic*\nSory chat yang kamu kirim akan di hapus, karna admin mengaktifkan antiToxic`)
 if (isBotAdmin && bot.restrict) {
     return this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Lain kali jangan begitu ya wadefakemen!')
+        } else if (!bot.restrict) return m.reply('Lain kali jangan begitu ya :)!')
     }
     return !0
 }
