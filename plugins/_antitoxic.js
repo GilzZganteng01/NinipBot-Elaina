@@ -1,19 +1,24 @@
-const isToxic = /(anjing|njir|kontol|memek|bangsat|babi|goblok|goblog|kntl|pepek|ppk|ngentod|ngentd|ngntd|kentod|kntd||njir|jir|cuk|coeg|cok|bgst|anjg|anj|fuck|hitam|ireng|jawir|gay|asw|asu|ktl)/i;
+const toxic = /anj(k|g)|ajn?(g|k)|a?njin(g|k)|bajingan|b(a?n)?gsa?t|ko?nto?l|me?me?(k|q)|pe?pe?(k|q)|meki|titi(t|d)|pe?ler|tetek|toket|ngewe|go?blo?k|to?lo?l|idiot|(k|ng)e?nto?(t|d)|jembut|bego|dajj?al|janc(u|o)k|pantek|puki ?(mak)?|kimak|kampang|lonte|col(i|mek?)|pelacur|henceu?t|nigga|fuck|dick|bitch|tits|bastard|njir|jir|asshole/i;
 
-export async function before(m, { isAdmin, isBotAdmin }) {
-    if (m.isBaileys && m.fromMe)
-        return !0
-    if (!m.isGroup) return !1
+export async function before(m, { isBotAdmin }) {
+    if (m.isBaileys && m.fromMe) return !0
     let chat = global.db.data.chats[m.chat]
-    let bot = global.db.data.settings[this.user.jid] || {}
-    const isAntiToxic = isToxic.exec(m.text)
-    let hapus = m.key.participant
-    let bang = m.key.id
-    if (chat.antiToxic && isAntiToxic) {
-     m.reply(`*Terdeteksi kata Toxic*\nSory chat yang kamu kirim akan di hapus, karna admin mengaktifkan antiToxic`)
-if (isBotAdmin && bot.restrict) {
-    return this.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Lain kali jangan begitu ya :)!')
+    let user = global.db.data.users[m.sender]
+    let isToxic = toxic.exec(m.text)
+    if (chat.antiToxic && isToxic) {
+        user.warn += 1
+        await conn.sendMessage(m.chat, { delete: m.key })
+        await m.reply(`${user.warn >= 5 ? '*📮 Jika total warning kamu mencapai 5 Bot terpaksa kick kamu dari grup!*' : '*📮 Kata Kata Toxic/Jorok Terdeteksi*'}
+
+𖠙 Warning: ${user.warn} / 5
+
+[❗] Jika total warning mencapai 5 Kamu akan dikeluarkan dari group ini
+
+“Barang siapa yang beriman kepada Allah dan Hari Akhir maka hendaklah dia berkata baik atau diam” (HR. al-Bukhari dan Muslim).`)
+        if (user.warn >= 5) {
+            user.warn = 0
+            await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+        }
     }
     return !0
 }

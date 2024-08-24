@@ -70,14 +70,6 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       chat.antiAudio = !isEnable;
       break;
-    case 'antibadword':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
-        }
-      }
-      chat.antiBadword = !isEnable;
-      break;
     case 'anticall':
       isAll = true;
       if (m.isGroup) {
@@ -101,7 +93,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiNsfw = !isEnable;
+      chat.antiNsfw = isEnable;
       break;
     case 'antisticker':
       if (m.isGroup) {
@@ -117,7 +109,7 @@ var handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
           return await conn.reply(m.chat, 'Only admin or owner can use this command in group chat!', m);
         }
       }
-      chat.antiToxic = !isEnable;
+      chat.antiToxic = isEnable;
       break;
     case 'antiVideo':
       if (m.isGroup) {
