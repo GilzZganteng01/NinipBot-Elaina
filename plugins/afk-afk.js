@@ -2,7 +2,7 @@ var handler = async (m, { text }) => {
   let user = global.db.data.users[m.sender]
   user.afk = + new Date
   user.afkReason = text
-  m.reply(`
+  conn.sendMessage(`
 ${conn.getName(m.sender)} is now AFK${text ? ': ' + text : ''}
 `)
 }
